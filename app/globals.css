@@ -119,7 +119,7 @@
 }
 
 .hero-btn {
-  @apply flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl cursor-pointer bg-white text-body-bold hover:bg-yellow-100 hover:text-white;
+  @apply flex items-center justify-center gap-1.5 px-4 py-3  cursor-pointer bg-transparent  border-[1px] border-white border-solid text-body-bold  hover:text-white;
 }
 
 /* All movies */

@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className={`navbar ${isScrolled && 'bg-black-1'}`}>
-      <Link href="/" className=" flex flex-row items-center">
+      <Link href="/" className=" flex flex-row items-center gap-2">
         <img src="/assets/logo2.png" alt="logo" className=" w-9 h-9" />
         <h2 className="hidden lg:block lg:font-bold lg:text-[20px] lg:visible lg:text-slate-400">
           Movie-Hub
