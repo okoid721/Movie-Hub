@@ -1,6 +1,8 @@
 import { Movie } from '@/lib/types';
 import MovieCard from './MovieCard';
 
+import 'react-multi-carousel/lib/styles.css';
+
 interface Props {
   title: string;
   movies: Movie[];
