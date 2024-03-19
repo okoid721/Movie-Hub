@@ -142,12 +142,56 @@
 
 /* Movie */
 .movie-card {
-  @apply relative h-24 min-w-48 sm:h-32 sm:min-w-60 md:h-36 md:min-w-72 cursor-pointer hover:outline-white;
+  @apply relative h-24 min-w-48 sm:h-32 sm:min-w-60 md:h-36 md:min-w-72  cursor-pointer hover:outline-white;
 }
 
 .thumbnail {
   @apply object-cover w-full h-full rounded-lg;
 }
+
+.thumbnail:hover {
+  @apply hidden;
+}
+
+.movie-card:hover {
+  @apply bg-blue-500;
+}
+
+.border {
+  @apply bg-gradient-to-t from-black/80 via-black/80 to-black/60 absolute inset-0 rounded-lg z-10;
+}
+
+.movie-card p {
+  @apply absolute bottom-0 left-0 right-0 text-white leading-tight text-center m-1 font-bold;
+}
+
+.movie-card:hover .thumbnail:not(:hover) {
+  @apply pointer-events-none opacity-50;
+}
+
+.movie-card:hover .border {
+  @apply pointer-events-none opacity-50;
+}
+
+.movie-card:hover .title {
+  @apply text-black;
+}
+
+.title {
+  @apply absolute bottom-0 left-0 right-0 text-white font-bold opacity-0 transition duration-1000 ease-in;
+}
+
+.movie-card:hover .title {
+  @apply opacity-100;
+}
+
+.movie-card:hover .overlay {
+  @apply opacity-100;
+}
+
+/* .hover {
+  @apply object-cover w-full h-full rounded-lg hover:bg-blue-500 absolute;
+} */
 
 .border {
   @apply absolute inset-0 rounded-lg border-4 border-transparent hover:border-white;

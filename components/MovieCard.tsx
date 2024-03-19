@@ -22,14 +22,14 @@ const MovieCard = ({ movie }: Props) => {
 
   return (
     <>
-      <div className="movie-card" onClick={openModal}>
+      <div className={`movie-card `} onClick={openModal}>
         <img
           src={
             movie.backdrop_path || movie.poster_path
               ? `${baseImgUrl}${movie.backdrop_path || movie.poster_path}`
               : '/assets/no-image.png'
           }
-          className="thumbnail"
+          className={`thumbnail hover:${movie.title} `}
           alt={movie.title || movie.name}
         />
         <div className="border"></div>
