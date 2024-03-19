@@ -40,7 +40,7 @@ const Modal = ({ movie, closeModal }: Props) => {
   const getMovieDetails = async () => {
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${movie.id}?append_to_response=videos`,
+        `${process.env.NEXT_PUBLIC_API_URL}/movie/${movie.id}?append_to_response=videos`,
         options
       );
       const data = await res.json();
@@ -160,3 +160,16 @@ const Modal = ({ movie, closeModal }: Props) => {
 };
 
 export default Modal;
+
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzQyZTllNzFmNTkxY2RiNDM2NTZmOTEyMWUwZTEwMSIsInN1YiI6IjY1Zjg1YzgyZDhmNDRlMDE2MzUwYTA3YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iffut1Bf05HXJII07e1B74oZM6sHBgpQuBA79T2_iHA'
+//     }
+//   };
+
+//   fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', options)
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .catch(err => console.error(err));
