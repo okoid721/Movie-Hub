@@ -97,9 +97,11 @@ const Modal = ({ movie, closeModal }: Props) => {
   //     }
   //   };
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
+    //   loading ? (
+    //     <Loader />
+    //   ) :
+
     <div className="modal">
       <button className="modal-close" onClick={closeModal}>
         <CancelRounded
@@ -114,7 +116,7 @@ const Modal = ({ movie, closeModal }: Props) => {
         className="modal-video"
       />
 
-      <div className="modal-content">
+      {/* <div className="modal-content">
         <div className="flex justify-between">
           <div className="flex gap-2">
             <p className="text-base-bold">Name:</p>
@@ -154,7 +156,7 @@ const Modal = ({ movie, closeModal }: Props) => {
             {genres.map((genre) => genre.name).join(', ')}
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
