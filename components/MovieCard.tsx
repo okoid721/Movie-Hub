@@ -3,7 +3,7 @@
 import { baseImgUrl } from '@/constants';
 import { Movie } from '@/lib/types';
 import { useState } from 'react';
-// import Modal from './Modal';
+import Modal from './Modal';
 
 interface Props {
   movie: Movie;
@@ -35,7 +35,7 @@ const MovieCard = ({ movie }: Props) => {
         <div className="border"></div>
       </div>
 
-      {/* {showModal && <Modal movie={movie} closeModal={closeModal} />} */}
+      {showModal && <Modal movie={movie} closeModal={closeModal} />}
     </>
   );
 };
