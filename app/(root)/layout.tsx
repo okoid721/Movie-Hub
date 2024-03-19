@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'MovieHub App',
-  description: 'Download and Watch Movie For free',
+  description: 'Explore The World Of Movie',
 };
 
 export default function RootLayout({

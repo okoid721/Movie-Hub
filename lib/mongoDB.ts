@@ -12,7 +12,7 @@ export const connectToDB = async (): Promise<void> => {
 
   try {
     await mongoose.connect(process.env.MONGODB_URL || '', {
-      dbName: 'FilmHub',
+      dbName: 'Movie-Hub',
     });
 
     isConnected = true;
@@ -21,4 +21,3 @@ export const connectToDB = async (): Promise<void> => {
     console.error(error);
   }
 };
-
