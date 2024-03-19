@@ -116,7 +116,7 @@ const Modal = ({ movie, closeModal }: Props) => {
         className="modal-video"
       />
 
-      {/* <div className="modal-content">
+      <div className="modal-content">
         <div className="flex justify-between">
           <div className="flex gap-2">
             <p className="text-base-bold">Name:</p>
@@ -127,12 +127,12 @@ const Modal = ({ movie, closeModal }: Props) => {
             {isFavorite ? (
               <RemoveCircle
                 // onClick={addToList}
-                className="cursor-pointer text-pink-1"
+                className="cursor-pointer text-yellow-100"
               />
             ) : (
               <AddCircle
                 // onClick={addToList}
-                className="cursor-pointer text-pink-1"
+                className="cursor-pointer text-yellow-100"
               />
             )}
           </div>
@@ -156,7 +156,7 @@ const Modal = ({ movie, closeModal }: Props) => {
             {genres.map((genre) => genre.name).join(', ')}
           </p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
