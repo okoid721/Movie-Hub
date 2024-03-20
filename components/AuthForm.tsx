@@ -5,6 +5,7 @@ import {
   LockOutlined,
   PersonOutlined,
 } from '@mui/icons-material';
+import { Button } from '@mui/material';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -164,6 +165,25 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
             <Link href="/register" passHref>
               <p className="link">Don't have an account? Register Here</p>
             </Link>
+          )}
+          {type === 'register' ? (
+            <button
+              className="button"
+              onClick={() => {
+                signIn('google');
+              }}
+            >
+              Sign Up with Google
+            </button>
+          ) : (
+            <button
+              className="button"
+              onClick={() => {
+                signIn('google');
+              }}
+            >
+              Continue with Google
+            </button>
           )}
         </div>
       </div>
