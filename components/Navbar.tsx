@@ -1,7 +1,7 @@
 'use client';
 
 import { Search } from '@mui/icons-material';
-// import { signOut } from "next-auth/react";
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = async () => {
-    // signOut({ callbackUrl: "/login" });
+    signOut({ callbackUrl: '/login' });
   };
 
   return (

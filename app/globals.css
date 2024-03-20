@@ -41,7 +41,7 @@
 }
 
 .button {
-  @apply w-full px-5 py-3 mt-5 mb-7 rounded-xl cursor-pointer bg-yellow-200 hover:bg-yellow-200 text-white text-body-bold;
+  @apply w-full px-5 py-3 mt-5 mb-7 rounded-xl cursor-pointer bg-black hover:bg-[#d7d7d7] text-white hover:text-black text-body-bold;
 }
 
 .link {
