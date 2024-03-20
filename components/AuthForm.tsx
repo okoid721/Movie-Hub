@@ -68,6 +68,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         toast.error('Something went wrong');
       }
     }
+    console.log(data);
   };
 
   return (
