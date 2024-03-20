@@ -1,6 +1,6 @@
-import { connectToDB } from "@lib/mongoDB";
-import User from "@models/User";
-import { NextRequest } from "next/server";
+import { connectToDB } from '@/lib/mongoDB';
+import User from '@/models/User';
+import { NextRequest } from 'next/server';
 
 export const GET = async (
   req: NextRequest,
@@ -11,10 +11,10 @@ export const GET = async (
 
     const { email } = params;
 
-    const user = await User.findOne({ email: email }).populate("favorites");
+    const user = await User.findOne({ email: email }).populate('favorites');
 
     if (!user) {
-      throw new Error("User not found!");
+      throw new Error('User not found!');
     }
 
     return new Response(JSON.stringify(user), { status: 200 });
@@ -36,7 +36,7 @@ export const POST = async (
     const user = await User.findOne({ email: email });
 
     if (!user) {
-      throw new Error("User not found!");
+      throw new Error('User not found!');
     }
 
     const { movieId } = await req.json();
