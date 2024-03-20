@@ -100,7 +100,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                   <PersonOutlined sx={{ color: 'white' }} />
                 </div>
                 {errors.username && (
-                  <p className="text-red-1">{errors.username.message}</p>
+                  <p className="text-red-600">{errors.username.message}</p>
                 )}
               </div>
             )}
@@ -118,7 +118,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 <EmailOutlined sx={{ color: 'white' }} />
               </div>
               {errors.email && (
-                <p className="text-red-1">{errors.email.message}</p>
+                <p className="text-red-600">{errors.email.message}</p>
               )}
             </div>
 
@@ -127,11 +127,15 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 <input
                   {...register('password', {
                     required: 'Password is required',
-                    // validate: (value: string | undefined) => {
-                    //   if (!value || value.length < 5 || !value.match(/[^a-zA-Z0-9]/g)) {
-                    //     return "Password must be more than 5 characters and contain at least 1 special";
-                    //   }
-                    // },
+                    validate: (value: string | undefined) => {
+                      if (
+                        !value ||
+                        value.length < 5 ||
+                        !value.match(/[^a-zA-Z0-9]/g)
+                      ) {
+                        return 'Password must be more than 5 characters and contain at least 1 special';
+                      }
+                    },
                   })}
                   type="password"
                   placeholder="Password"
@@ -140,7 +144,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                 <LockOutlined sx={{ color: 'white' }} />
               </div>
               {errors.password && (
-                <p className="text-red-1 max-w-80">{errors.password.message}</p>
+                <p className="text-red-600 max-w-80">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
