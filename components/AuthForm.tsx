@@ -49,7 +49,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       });
 
       if (res.ok) {
-        router.push('/login');
+        router.push('/');
       } else {
         toast.error('Something went wrong');
       }
