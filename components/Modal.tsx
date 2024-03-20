@@ -1,7 +1,7 @@
 'use client';
 
 import { AddCircle, CancelRounded, RemoveCircle } from '@mui/icons-material';
-// import { useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 import { Genre, Movie, Video } from '@/lib/types';
@@ -20,7 +20,7 @@ interface User {
 }
 
 const Modal = ({ movie, closeModal }: Props) => {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   const [video, setVideo] = useState('');
@@ -66,42 +66,40 @@ const Modal = ({ movie, closeModal }: Props) => {
 
   // ADD TO LIST
 
-  //   const getUser = async () => {
-  //     try {
-  //       const res = await fetch(`/api/user/${session?.user?.email}`);
-  //       const data = await res.json();
-  //       setUser(data);
-  //       setIsFavorite(data.favorites.find((item: Number) => item === movie.id));
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error('Error fetching user:', error);
-  //     }
-  //   };
+  const getUser = async () => {
+    try {
+      const res = await fetch(`/api/user/${session?.user?.email}`);
+      const data = await res.json();
+      setUser(data);
+      setIsFavorite(data.favorites.find((item: Number) => item === movie.id));
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching user:', error);
+    }
+  };
 
-  //   useEffect(() => {
-  //     if (session) getUser();
-  //   }, [session]);
+  useEffect(() => {
+    if (session) getUser();
+  }, [session]);
 
-  //   const addToList = async () => {
-  //     try {
-  //       const res = await fetch(`/api/user/${user?.email}`, {
-  //         method: 'POST',
-  //         body: JSON.stringify({ movieId: movie.id }),
-  //       });
-  //       const data = await res.json();
-  //       setUser(data);
-  //       setIsFavorite(data.favorites.find((item: Number) => item === movie?.id));
-  //       router.refresh();
-  //     } catch (error) {
-  //       console.error('Error adding movie to list:', error);
-  //     }
-  //   };
+  const addToList = async () => {
+    try {
+      const res = await fetch(`/api/user/${user?.email}`, {
+        method: 'POST',
+        body: JSON.stringify({ movieId: movie.id }),
+      });
+      const data = await res.json();
+      setUser(data);
+      setIsFavorite(data.favorites.find((item: Number) => item === movie?.id));
+      router.refresh();
+    } catch (error) {
+      console.error('Error adding movie to list:', error);
+    }
+  };
 
-  return (
-    //   loading ? (
-    //     <Loader />
-    //   ) :
-
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="modal">
       <button className="modal-close" onClick={closeModal}>
         <CancelRounded
@@ -126,12 +124,12 @@ const Modal = ({ movie, closeModal }: Props) => {
             <p className="text-base-bold">Add to list</p>
             {isFavorite ? (
               <RemoveCircle
-                // onClick={addToList}
+                onClick={addToList}
                 className="cursor-pointer text-yellow-100"
               />
             ) : (
               <AddCircle
-                // onClick={addToList}
+                onClick={addToList}
                 className="cursor-pointer text-yellow-100"
               />
             )}
@@ -162,16 +160,3 @@ const Modal = ({ movie, closeModal }: Props) => {
 };
 
 export default Modal;
-
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzQyZTllNzFmNTkxY2RiNDM2NTZmOTEyMWUwZTEwMSIsInN1YiI6IjY1Zjg1YzgyZDhmNDRlMDE2MzUwYTA3YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iffut1Bf05HXJII07e1B74oZM6sHBgpQuBA79T2_iHA'
-//     }
-//   };
-
-//   fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));

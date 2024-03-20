@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
-// import ToasterContext from '@context/ToasterContext';
-// import AuthProvider from '@context/AuthProvider';
+import ToasterContext from '@/context/ToasterContext';
+import AuthProvider from '@/context/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black-1`}>
-        {/* <AuthProvider>
-          <ToasterContext /> */}
-        {children}
-        {/* </AuthProvider> */}
+        <AuthProvider>
+          <ToasterContext />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
